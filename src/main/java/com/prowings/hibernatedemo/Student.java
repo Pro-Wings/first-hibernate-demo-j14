@@ -1,9 +1,24 @@
 package com.prowings.hibernatedemo;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="STUDENT_TABLE")
 public class Student {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@Column
+	private int rollNumber;
+	@Column
 	private String name;
+	@Column
 	private String address;
 
 	public Student() {
@@ -41,12 +56,17 @@ public class Student {
 		this.address = address;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", address=" + address + "]";
+	public int getRollNumber() {
+		return rollNumber;
 	}
 
-	
-	
-	
+	public void setRollNumber(int rollNumber) {
+		this.rollNumber = rollNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", rollNumber=" + rollNumber + ", name=" + name + ", address=" + address + "]";
+	}
+
 }

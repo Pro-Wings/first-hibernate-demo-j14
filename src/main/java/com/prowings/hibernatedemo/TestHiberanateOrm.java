@@ -25,6 +25,7 @@ public class TestHiberanateOrm {
 		Transaction transaction = session.beginTransaction();
 		
 		Student student1 = new Student();
+		student1.setRollNumber(10);
 		student1.setName("Ram");
 		student1.setAddress("Pune");
 		
