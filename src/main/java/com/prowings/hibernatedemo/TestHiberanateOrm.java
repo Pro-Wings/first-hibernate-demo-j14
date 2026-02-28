@@ -25,11 +25,20 @@ public class TestHiberanateOrm {
 		Transaction transaction = session.beginTransaction();
 		
 		Student student1 = new Student();
-		student1.setRollNumber(10);
-		student1.setName("Ram");
-		student1.setAddress("Pune");
+		student1.setRollNumber(55);
+		student1.setName("RajShekhar");
+		student1.setAddress("UP");
 		
 		session.persist(student1);
+//		session.save(student1);
+
+		
+//		Student s1 = session.get(Student.class, 1);
+//		Student s1 = session.getReference(Student.class, 1);
+//		Student s1 = session.load(Student.class, 1);
+		
+//		System.out.println("Fetched Student : "+s1);
+		
 		
 		transaction.commit();
 		

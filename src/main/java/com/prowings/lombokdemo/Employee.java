@@ -1,6 +1,7 @@
 package com.prowings.lombokdemo;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
+
+@Data
 public class Employee {
 	
 	private int empId;

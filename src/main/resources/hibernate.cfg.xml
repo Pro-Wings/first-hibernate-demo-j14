@@ -30,7 +30,7 @@
         <property name="hibernate.format_sql">true</property>
 
         <!-- Auto create table -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Mapping file -->
         <!-- <mapping resource="student.hbm.xml"/> -->
