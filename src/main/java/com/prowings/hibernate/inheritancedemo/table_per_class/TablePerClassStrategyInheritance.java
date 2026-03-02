@@ -1,52 +1,51 @@
-package com.prowings.hibernatedemo;
+package com.prowings.hibernate.inheritancedemo.table_per_class;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class TestHiberanateOrm {
+public class TablePerClassStrategyInheritance {
 	
 	public static void main(String[] args) {
 		
 		System.out.println("main method started!!");
-		//java object - persistent? - Yes state=transient
 		
-	
+		
 		//Create Session Factory object
-		
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
 		
 		SessionFactory sessionFactory = configuration.buildSessionFactory();
-		
+
 		Session session = sessionFactory.openSession();
-		
 		Transaction transaction = session.beginTransaction();
-		
-//		Student student1 = new Student();
-//		student1.setRollNumber(55);
-//		student1.setName("RajShekhar");
-//		student1.setAddress("UP");
+
+//		Person p = new Person("Raju");
 //		
-//		session.persist(student1);
-//		session.save(student1);
+//		session.persist(p);
+		
+		Employee e = new Employee("Ram", 90000);
+		
+		session.persist(e);
+
+		Student s = new Student("Sham", "Java");
+		session.persist(s);
 
 		
-//		Student s1 = session.get(Student.class, 1);
-		Student s1 = session.getReference(Student.class, 10);
-//		Student s1 = session.load(Student.class, 10);
-		
-		System.out.println("Fetched Student : "+s1);
-		
+//		Employee fetchedEmp = session.get(Employee.class, 2);
+//		
+//		System.out.println("Fetched Employee id : "+fetchedEmp.getId());
+//		System.out.println("Fetched Employee name : "+fetchedEmp.getName());
+//		System.out.println("Fetched Employee salary : "+fetchedEmp.getSalary());
 		
 		transaction.commit();
-		
 		session.close();
-		
 		sessionFactory.close();
 		
 		System.out.println("main method ended!!");
+
+		
 	}
 
 }

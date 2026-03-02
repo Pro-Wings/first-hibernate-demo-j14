@@ -30,11 +30,19 @@
         <property name="hibernate.format_sql">true</property>
 
         <!-- Auto create table -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
         <!-- Mapping file -->
         <!-- <mapping resource="student.hbm.xml"/> -->
-        <mapping class = "com.prowings.hibernatedemo.Student" /> 
+<!--         
+        <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Student" /> 
+        <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Person" /> 
+        <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Employee" /> 
 
-    </session-factory>
+ -->
+        <mapping class = "com.prowings.hibernate.inheritancedemo.table_per_class.Student" /> 
+        <mapping class = "com.prowings.hibernate.inheritancedemo.table_per_class.Person" /> 
+        <mapping class = "com.prowings.hibernate.inheritancedemo.table_per_class.Employee" /> 
+ 
+     </session-factory>
 </hibernate-configuration>
