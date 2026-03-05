@@ -21,26 +21,37 @@ public class TablePerClassStrategyInheritance {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 
-//		Person p = new Person("Raju");
-//		
-//		session.persist(p);
-		
-		Employee e = new Employee("Ram", 90000);
-		
-		session.persist(e);
 
-		Student s = new Student("Sham", "Java");
-		session.persist(s);
+//		Student s = new Student("Ram", "Python");
+//		session.persist(s);
 
 		
-//		Employee fetchedEmp = session.get(Employee.class, 2);
-//		
-//		System.out.println("Fetched Employee id : "+fetchedEmp.getId());
-//		System.out.println("Fetched Employee name : "+fetchedEmp.getName());
-//		System.out.println("Fetched Employee salary : "+fetchedEmp.getSalary());
+		Student fetchedStd = session.get(Student.class, 1);
+		
+		System.out.println("Std id : "+fetchedStd.getId());
+		System.out.println("Std name : "+fetchedStd.getName());
+		System.out.println("Std course : "+fetchedStd.getCourse());
 		
 		transaction.commit();
 		session.close();
+		System.out.println("----------------------------------");
+		
+		System.out.println("---create session2---");
+		
+		Session session2 = sessionFactory.openSession();
+		Transaction transaction2 = session2.beginTransaction();
+
+		Student fetchedStd3 = session2.get(Student.class, 1);
+		
+		System.out.println("3Std id : "+fetchedStd3.getId());
+		System.out.println("3Std name : "+fetchedStd3.getName());
+		System.out.println("3Std course : "+fetchedStd3.getCourse());
+
+		
+		transaction2.commit();
+		session2.close();
+
+		
 		sessionFactory.close();
 		
 		System.out.println("main method ended!!");
