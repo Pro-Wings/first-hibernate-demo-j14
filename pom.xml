@@ -5,25 +5,80 @@
 	<groupId>com.prowings.j14</groupId>
 	<artifactId>first-hibernate-demo-j14</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<dependencies>
+
+		<!-- MySQL Driver -->
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<version>9.5.0</version>
-			<scope>compile</scope>
 		</dependency>
+
+		<!-- Hibernate Core -->
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.0.0.Final</version>
-			<scope>compile</scope>
+			<version>6.5.2.Final</version>
 		</dependency>
+
+		<!-- Hibernate JCache Integration -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-jcache</artifactId>
+			<version>6.5.2.Final</version>
+		</dependency>
+
+		<!-- Ehcache Provider -->
+		<dependency>
+			<groupId>org.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>3.10.8</version>
+			<!-- Add this exclusion block -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.glassfish.jaxb</groupId>
+					<artifactId>jaxb-runtime</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- JCache API -->
+		<dependency>
+			<groupId>javax.cache</groupId>
+			<artifactId>cache-api</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.42</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
+		
+		<!-- 1. FOR HIBERNATE 6 (Jakarta Namespace) -->
+<dependency>
+    <groupId>jakarta.xml.bind</groupId>
+    <artifactId>jakarta.xml.bind-api</artifactId>
+    <version>4.0.0</version>
+</dependency>
+<dependency>
+    <groupId>org.glassfish.jaxb</groupId>
+    <artifactId>jaxb-runtime</artifactId>
+    <version>4.0.2</version>
+</dependency>
+
+<!-- 2. FOR EHCACHE 3 (Javax Namespace) -->
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.3.1</version>
+</dependency>
+<!-- Note: We don't add the 2.3.1 runtime here to avoid classpath 
+     conflicts; the 4.x runtime can often handle the 2.x API calls 
+     via bridge, but if Ehcache still complains, we will add the 
+     specific 2.3.1 runtime glassfish jar. -->
 
 	</dependencies>
 </project>

@@ -1,5 +1,6 @@
 package com.prowings.hibernate.inheritancedemo.table_per_class;
 
+import jakarta.persistence.Cacheable;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -15,6 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@Cacheable
 public class Employee extends Person {
 	@Column
     private double salary;

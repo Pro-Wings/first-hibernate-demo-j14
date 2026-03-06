@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class TablePerClassStrategyInheritance {
+public class SecondLevelCacheDemo2 {
 	
 	public static void main(String[] args) {
 		
@@ -21,11 +21,11 @@ public class TablePerClassStrategyInheritance {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 
-		Student fetchedStd = session.get(Student.class, 1);
+		Employee fetchedEmp = session.get(Employee.class, 1);
 		
-		System.out.println("Std id : "+fetchedStd.getId());
-		System.out.println("Std name : "+fetchedStd.getName());
-		System.out.println("Std course : "+fetchedStd.getCourse());
+		System.out.println("id : "+fetchedEmp.getId());
+		System.out.println("name : "+fetchedEmp.getName());
+		System.out.println("Salary : "+fetchedEmp.getSalary());
 		
 		transaction.commit();
 		session.close();
@@ -36,12 +36,11 @@ public class TablePerClassStrategyInheritance {
 		Session session2 = sessionFactory.openSession();
 		Transaction transaction2 = session2.beginTransaction();
 
-		Student fetchedStd3 = session2.get(Student.class, 1);
+		Employee fetchedEmp2 = session2.get(Employee.class, 1);
 		
-		System.out.println("3Std id : "+fetchedStd3.getId());
-		System.out.println("3Std name : "+fetchedStd3.getName());
-		System.out.println("3Std course : "+fetchedStd3.getCourse());
-
+		System.out.println("id : "+fetchedEmp2.getId());
+		System.out.println("name : "+fetchedEmp2.getName());
+		System.out.println("Salary : "+fetchedEmp2.getSalary());
 		
 		transaction2.commit();
 		session2.close();

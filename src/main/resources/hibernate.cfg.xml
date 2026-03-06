@@ -1,48 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <hibernate-configuration>
-    <session-factory>
+	<session-factory>
 
-        <!-- Database connection settings -->
-        <property name="hibernate.connection.driver_class">
-            com.mysql.cj.jdbc.Driver
-        </property>
+		<!-- Database connection settings -->
+		<property name="hibernate.connection.driver_class">
+			com.mysql.cj.jdbc.Driver
+		</property>
 
-        <property name="hibernate.connection.url">
-            jdbc:mysql://localhost:3306/student_db
-        </property>
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/student_db
+		</property>
 
-        <property name="hibernate.connection.username">
-            root
-        </property>
+		<property name="hibernate.connection.username">
+			root
+		</property>
 
-        <property name="hibernate.connection.password">
-            prowingsroot
-        </property>
+		<property name="hibernate.connection.password">
+			prowingsroot
+		</property>
 
-        <!-- Dialect -->
-        <property name="hibernate.dialect">
-            org.hibernate.dialect.MySQLDialect
-        </property>
+		<!-- Dialect -->
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
 
-        <!-- Show SQL -->
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
+		<!-- Show SQL -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
 
-        <!-- Auto create table -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- Auto create table -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
 
-        <!-- Mapping file -->
-        <!-- <mapping resource="student.hbm.xml"/> -->
-<!--         
-        <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Student" /> 
-        <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Person" /> 
-        <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Employee" /> 
+		<!-- Second level cache configs -->
 
- -->
-        <mapping class = "com.prowings.hibernate.inheritancedemo.table_per_class.Student" /> 
-        <mapping class = "com.prowings.hibernate.inheritancedemo.table_per_class.Person" /> 
-        <mapping class = "com.prowings.hibernate.inheritancedemo.table_per_class.Employee" /> 
- 
-     </session-factory>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+
+		<property name="hibernate.cache.region.factory_class">
+			org.hibernate.cache.jcache.internal.JCacheRegionFactory
+		</property>
+
+		<property name="hibernate.jakarta.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider
+		</property>
+		<property name="hibernate.jakarta.cache.uri">ehcache.xml</property>
+
+		<!-- Mapping file -->
+		<!-- <mapping resource="student.hbm.xml"/> -->
+		<!-- <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Student" 
+			/> <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Person" 
+			/> <mapping class = "com.prowings.hibernate.inheritancedemo.joined.Employee" 
+			/> -->
+		<mapping
+			class="com.prowings.hibernate.inheritancedemo.table_per_class.Student" />
+		<mapping
+			class="com.prowings.hibernate.inheritancedemo.table_per_class.Person" />
+		<mapping
+			class="com.prowings.hibernate.inheritancedemo.table_per_class.Employee" />
+
+
+	</session-factory>
 </hibernate-configuration>
